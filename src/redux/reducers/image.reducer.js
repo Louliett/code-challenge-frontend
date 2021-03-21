@@ -1,6 +1,11 @@
 import { imageConstant } from '../constants';
 
 const defaultState = {
+    images: [],
+    loading: true,
+    error: false,
+    pageNumber: 1,
+    apiHasMoreImgs: false,
     openModal: false,
     imageInfo: {
         description: 'Loading...',
@@ -16,6 +21,29 @@ const defaultState = {
 
 export function imageReducer(state = defaultState, action) {
     switch (action.type) {
+        case imageConstant.GET_IMAGES_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: false
+            }
+        case imageConstant.GET_IMAGES_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                images: [...state.images, ...action.payload.images],
+                apiHasMoreImgs: action.payload.hasMore
+            }
+        case imageConstant.GET_IMAGES_FAILURE:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case imageConstant.SET_PAGE_NUMBER:
+            return {
+                ...state,
+                pageNumber: state.pageNumber + 1
+            }
         case imageConstant.OPEN_IMAGE_MODAL:
             return {
                 ...state,

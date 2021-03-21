@@ -1,4 +1,4 @@
-import { HomeContainer } from '../src/presentation/home/HomeContainer';
+import { HomeContainer } from '../src/components/home/HomeContainer';
 
 function App() {
   return (
