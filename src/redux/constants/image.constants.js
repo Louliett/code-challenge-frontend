@@ -1,0 +1,6 @@
+export const imageConstant = {
+    OPEN_IMAGE_MODAL: 'OPEN_IMAGE_MODAL',
+    CLOSE_IMAGE_MODAL: 'CLOSE_IMAGE_MODAL',
+
+    SET_IMAGE_INFO: 'SET_IMAGE_INFO'
+}
