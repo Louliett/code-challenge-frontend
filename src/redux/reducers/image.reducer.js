@@ -4,6 +4,7 @@ const defaultState = {
     images: [],
     loading: true,
     error: false,
+    errorMessage: '',
     pageNumber: 1,
     apiHasMoreImgs: false,
     openModal: false,
@@ -37,7 +38,8 @@ export function imageReducer(state = defaultState, action) {
         case imageConstant.GET_IMAGES_FAILURE:
             return {
                 ...state,
-                error: action.payload
+                error: true,
+                errorMessage: action.payload
             }
         case imageConstant.SET_PAGE_NUMBER:
             return {

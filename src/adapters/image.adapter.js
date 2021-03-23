@@ -5,25 +5,6 @@ export const imageAdapter = {
     fetchImagesPerPage
 }
 
-// async function fetchImagesPerPage(pageNumber) {
-//     var myHeaders = new Headers();
-//     myHeaders.append("Authorization", `Client-ID ${ACCESS_KEY}`);
-//     var requestOptions = {
-//         method: 'GET',
-//         headers: myHeaders,
-//         redirect: 'follow'
-//       };
-    
-//     try {
-//         let response = await fetch(`${API_URL}?page=${pageNumber}&per_page=30`, requestOptions);
-//         let message = await response.json();
-//         return message;
-//     } catch (error) {
-//         return error;
-//     }
-
-// }
-
 async function fetchImagesPerPage(pageNumber) {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Client-ID ${ACCESS_KEY}`);

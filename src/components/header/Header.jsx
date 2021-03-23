@@ -4,7 +4,7 @@ export function Header() {
 
     return(
         <div className='header'>
-            Header
+            <span className='app-title'><b>Unsplash</b></span>
         </div>
     );
 }

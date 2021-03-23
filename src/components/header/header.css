@@ -1,4 +1,12 @@
 .header {
     width: 100%;
-    background-color: aquamarine;
+    height: 100px;
+    background-color: #85CB33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-title {
+    font-size: 50px;
 }

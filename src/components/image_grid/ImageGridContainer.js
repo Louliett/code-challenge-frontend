@@ -10,6 +10,7 @@ export function ImageGridContainer() {
     const images = useSelector(state => (state.imageReducer.images));
     const loading = useSelector(state => (state.imageReducer.loading));
     const error = useSelector(state => (state.imageReducer.error));
+    const errorMessage = useSelector(state => (state.imageReducer.errorMessage));
     const apiHasMoreImgs = useSelector(state => (state.imageReducer.apiHasMoreImgs));
     const pageNumber = useSelector(state => (state.imageReducer.pageNumber));
     const lastImageRef = ObserveLastElement(loading, imageAction, dispatch, apiHasMoreImgs);
@@ -29,6 +30,7 @@ export function ImageGridContainer() {
             images={images}
             loading={loading}
             error={error}
+            errorMessage={errorMessage}
             lastImageRef={lastImageRef}
             onImageClick={handleImageClick}
         />

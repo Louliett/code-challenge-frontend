@@ -16,7 +16,6 @@ function getImagesPerPage(pageNumber) {
         imageAdapter.fetchImagesPerPage(pageNumber)
         .then(images => {
             const hasMore = (images.length > 0);
-            //console.log(hasMore, ' MOAR');
             dispatch(success(images, hasMore));
         })
         .catch(error => dispatch(failure(error)) );
