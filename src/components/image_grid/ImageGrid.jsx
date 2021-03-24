@@ -12,7 +12,8 @@ export function ImageGrid(props) {
                                 <Ref key={image.id} innerRef={props.lastImageRef}>
                                     <Grid.Column key={image.id}>
                                         <div className='image_div'>
-                                            <img 
+                                            <img
+                                                className='grid_image'
                                                 src={image.urls.regular} 
                                                 alt={image.alt_description} 
                                                 onClick={ () => {props.onImageClick(image)}} 
@@ -25,7 +26,8 @@ export function ImageGrid(props) {
                             return (
                                 <Grid.Column key={image.id}>
                                     <div className='image_div'>
-                                        <img 
+                                        <img
+                                            className='grid_image'
                                             src={image.urls.regular} 
                                             alt={image.alt_description} 
                                             onClick={ () => {props.onImageClick(image)}} 
