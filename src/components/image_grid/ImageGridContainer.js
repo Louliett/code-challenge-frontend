@@ -21,8 +21,9 @@ export function ImageGridContainer() {
     }, [pageNumber]);
 
 
-    function handleImageClick(imageInfo) {
-        dispatch(imageAction.openImageModal(imageInfo));
+    function handleImageClick(imageInfo, imageIndex) {
+        console.log(imageIndex, ' indexxx');
+        dispatch(imageAction.openImageModal(imageInfo, imageIndex));
     }
 
     return(

@@ -16,7 +16,7 @@ export function ImageGrid(props) {
                                                 className='grid_image'
                                                 src={image.urls.regular} 
                                                 alt={image.alt_description} 
-                                                onClick={ () => {props.onImageClick(image)}} 
+                                                onClick={ () => {props.onImageClick(image, index)}} 
                                             />
                                         </div>
                                     </Grid.Column>
@@ -30,7 +30,7 @@ export function ImageGrid(props) {
                                             className='grid_image'
                                             src={image.urls.regular} 
                                             alt={image.alt_description} 
-                                            onClick={ () => {props.onImageClick(image)}} 
+                                            onClick={ () => {props.onImageClick(image, index)}} 
                                         />
                                     </div>
                                 </Grid.Column>

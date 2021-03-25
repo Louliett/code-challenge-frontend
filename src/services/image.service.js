@@ -1,8 +1,9 @@
 //import { imageAdapter } from '../adapters/image.adapter';
 
-// export const imageService = {
-//     getImagesPerPage
-// }
+export const imageService = {
+    //getImagesPerPage
+    setImageInfoBasedOnIndex
+}
 
 
 // //The reason for this function to exist, is
@@ -15,3 +16,8 @@
 //     //console.log(images_per_page.length);
 //     return images_per_page;
 // }
+
+function setImageInfoBasedOnIndex(oldIndex, direction, arr) {
+    let newIndex = oldIndex + direction;
+    return arr[newIndex];
+}

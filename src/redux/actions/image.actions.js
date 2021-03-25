@@ -5,6 +5,7 @@ export const imageAction = {
     getImagesPerPage,
     setPageNumber,
     setImageInfo,
+    setNewImageInfo,
     openImageModal,
     closeImageModal
 }
@@ -38,10 +39,10 @@ function setPageNumber() {
     return { type: imageConstant.SET_PAGE_NUMBER }
 }
 
-function openImageModal(imageInfo) {
+function openImageModal(imageInfo, imageIndex) {
     return { 
         type: imageConstant.OPEN_IMAGE_MODAL,
-        payload: imageInfo
+        payload: { imageInfo, imageIndex }
     }
 }
 
@@ -53,5 +54,12 @@ function setImageInfo(image) {
     return { 
         type: imageConstant.SET_IMAGE_INFO,
         payload: image
+    }
+}
+
+function setNewImageInfo(newIndex) {
+    return {
+        type: imageConstant.SET_NEW_IMAGE_INFO,
+        payload: newIndex
     }
 }

@@ -17,7 +17,8 @@ const defaultState = {
             first_name: 'Loading...',
             last_name: 'Loading...'
         }
-    }
+    },
+    imageIndex: null
 }
 
 export function imageReducer(state = defaultState, action) {
@@ -50,7 +51,8 @@ export function imageReducer(state = defaultState, action) {
             return {
                 ...state,
                 openModal: true,
-                imageInfo: action.payload
+                imageInfo: action.payload.imageInfo,
+                imageIndex: action.payload.imageIndex
             }
         case imageConstant.CLOSE_IMAGE_MODAL:
             return {
@@ -58,6 +60,30 @@ export function imageReducer(state = defaultState, action) {
                 openModal: false,
                 imageInfo: defaultState.imageInfo
             }
+        case imageConstant.SET_NEW_IMAGE_INFO:
+            const firstIndex = 0;
+            const lastIndex = state.images.length - 1;
+            if (action.payload < firstIndex) {
+                return {
+                    ...state,
+                    imageInfo: state.images[firstIndex],
+                    imageIndex: firstIndex
+                }       
+            } else if (action.payload > lastIndex) {
+                return {
+                    ...state,
+                    imageInfo: state.images[lastIndex],
+                    imageIndex: lastIndex,
+                    pageNumber: state.pageNumber + 1
+                }  
+            } else {
+                return {
+                    ...state,
+                    imageInfo: state.images[action.payload],
+                    imageIndex: action.payload
+                }
+            }
+
         default:
             return state;
     }

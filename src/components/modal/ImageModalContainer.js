@@ -8,9 +8,15 @@ export function ImageModalContainer(props) {
     const dispatch = useDispatch();
     const openModal = useSelector(state => (state.imageReducer.openModal));
     const imageInfo = useSelector(state => (state.imageReducer.imageInfo));
+    const imageIndex = useSelector(state => (state.imageReducer.imageIndex));
 
     function handleClose() {
         dispatch(imageAction.closeImageModal());
+    }
+
+    function handleChevronClick(direction) {
+        let newIndex = imageIndex + direction;
+        dispatch(imageAction.setNewImageInfo(newIndex));
     }
 
     return (
@@ -18,6 +24,7 @@ export function ImageModalContainer(props) {
             open={openModal}
             onClose={handleClose}
             imageInfo={imageInfo}
+            onChevronClick={handleChevronClick}
         />
     );
 }
