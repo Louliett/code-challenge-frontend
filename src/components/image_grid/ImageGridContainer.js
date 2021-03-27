@@ -22,7 +22,6 @@ export function ImageGridContainer() {
 
 
     function handleImageClick(imageInfo, imageIndex) {
-        console.log(imageIndex, ' indexxx');
         dispatch(imageAction.openImageModal(imageInfo, imageIndex));
     }
 
