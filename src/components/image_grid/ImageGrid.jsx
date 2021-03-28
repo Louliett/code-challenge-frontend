@@ -38,6 +38,7 @@ export function ImageGrid(props) {
                             )
                         }
                     })}
+                    <br/>
                     <div>{props.loading && <Loader active inline='centered' />}</div>
                     <div>{props.error && <p>props.errorMessage</p>}</div>
                 {/* </Grid.Row> */}

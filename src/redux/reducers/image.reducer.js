@@ -7,7 +7,8 @@ const defaultState = {
     errorMessage: '',
     pageNumber: 1,
     apiHasMoreImgs: false,
-    openModal: false,
+    openImageModal: false,
+    openInfoModal: false,
     imageInfo: {
         description: 'Loading...',
         urls: {
@@ -50,14 +51,14 @@ export function imageReducer(state = defaultState, action) {
         case imageConstant.OPEN_IMAGE_MODAL:
             return {
                 ...state,
-                openModal: true,
+                openImageModal: true,
                 imageInfo: action.payload.imageInfo,
                 imageIndex: action.payload.imageIndex
             }
         case imageConstant.CLOSE_IMAGE_MODAL:
             return {
                 ...state,
-                openModal: false,
+                openImageModal: false,
                 imageInfo: defaultState.imageInfo
             }
         case imageConstant.SET_NEW_IMAGE_INFO:

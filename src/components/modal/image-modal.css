@@ -14,7 +14,8 @@
     overflow: hidden;
 	position: fixed;
 	left: 0px;
-	top: 48%;
+	top: 50%;
+	transform: translate(0, -50%);
 	display: inline-block;
 	margin-right: 1px;
 }
@@ -27,7 +28,8 @@
     overflow: hidden;
 	position: fixed;
 	right: 0px;
-	top: 48%;
+	top: 50%;
+	transform: translate(0, -50%);
 	display: inline-block;
 	margin-left: 1px;
 }
@@ -36,4 +38,86 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+.info_circle {
+	cursor: pointer;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	bottom: 0;
+	left: 50%;
+}
+
+.modal_info {
+	position: fixed;
+	height: 50%;
+}
+
+.top_half {
+	width: 100%;
+	height:50%;
+	display: block;
+	text-align: center;
+	position: relative;
+}
+
+.description_username {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+}
+
+/* .image_description {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 4%;
+	left: 50%;
+}
+
+.image_username {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 15%;
+	left: 50%;
+} */
+
+.info_image {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	opacity: 0.2;
+}
+
+.modal_divider {
+	border-style: solid;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top-color: #d1d1d1;
+}
+
+.bottom_half {
+	width: 100%;
+	height: 46%;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+}
+
+
+
+.like_icon {
+	position:absolute;
+	bottom: 0%;
+	left: 3%;
+	margin-bottom: 1%;
+}
+
+.download_icon {
+	cursor: pointer;
+	position:absolute;
+	bottom: 0%;
+	right: 3%;
+	margin-bottom: 1%;
 }
