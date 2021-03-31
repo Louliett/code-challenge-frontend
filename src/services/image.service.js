@@ -17,6 +17,7 @@ export const imageService = {
 //     return images_per_page;
 // }
 
+//this function is for switching between images withouth exiting the screen
 function setImageInfoBasedOnIndex(oldIndex, direction, arr) {
     let newIndex = oldIndex + direction;
     return arr[newIndex];

@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+Frontend challenge
+====
+# General Info
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an oversimplified copy of the famous [Unsplas](https://unsplash.com/). This application actually uses its API to fetch images using **lazy-loading** principle on scroll. The images are loaded on a responsive grid: 
+for mobile devices and computers. On an image click, the image is open in its full resolution in a modal. The user can
+inspect image meta info, download the image and browse next images without closing the modal.
+ 
+# Requirements
 
-## Available Scripts
+- [x] Use the Unsplash API - docs here to set up a developer account: https://unsplash.com/documentation.
+- [x] We want to see a grid overview, use the GET /photos/photos endpoint from the Unsplash API to get a set of images.
+- [x] The application should be responsive and work both in portrait and landscape modes, on both desktop and mobile.
+- [x] The application should support infinite scrolling using a lazy-load to fetch new images as the user scrolls.
+- [x] The user can click on a grid element to get a full-width representation of the image with additional meta data.
+- [x] The user can navigate to previous or next full-width representation without having to close that view.
+- [x] React
+- [ ] Tests (Not implemented due to time constraints. A preferable choiche would have been Jest).
+- [x] Linter
+- [ ] CSSinJS (Not implemented due to time constraints. A preferable choiche would have been Styled Components).
 
-In the project directory, you can run:
+# Technologies
+* [Redux] (https://react-redux.js.org/introduction/getting-started) 
+* [Redux Thunk Middleware] (https://www.npmjs.com/package/redux-thunk)
+* [Semantic Ui React] (https://react.semantic-ui.com/)
 
-### `npm start`
+# Development
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The requirement was to build a clean React app. To keep it as simple as possible, roughly two technologies were used:
+Redux and Semantic Ui React.
+**Redux** was used to keep the application state clean and accessible without having to pass props up and down through components. Redux Thunk was implemented to dispatch and return function in actions. This is especially useful when dealing with API data.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Advantages:
++ State management through Actions.
++ State is Globally accessable.
++ Useful when a child component should trigger based on changes in parent/sibling component (Modal).
 
-### `npm test`
+Disadvantages:
+- Lots of boilerplate code.
+- May be overkill for such a small application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Semantic UI React** is a simple and intuitive UI library. This was picked to quickly implement prebuild HTML structures
+such as Modals, Grids, Icons. Moreover, the Grid structure contains responsive attributes for different screen sizes.
 
-### `npm run build`
+Advantages
++ Easy Implementation of sofisticated structures: Responsiveness, Modal functions
++ Pleasing look and minimalistic design
++ Good Documentation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Disadvantages
++ Components come with predifined CSS styling, making it too difficult to overwrite it.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Architecture
 
-### `npm run eject`
+The project was developed using the following architecture:
+<img src="./project_images/splash_diagram.png" alt="splash_diagram" border="2"/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The **Data Access Layer** is composed of scripts that only make API Calls with fetch().
+The **Logic Layer** is composed of various services. These services hold various business logic functions and are called
+by higher layers of the application. In this way the code is more readable.
+The **Presentation Layer** is composed of React Components. Withing these components there is a hierachy of parent and children. A component itself is split into two scripts: 
+ - Presentational - a jsx file containing jsx syntax for the page
+structure
+ - Container - a js script that imports the Presentational jsx file, applies logic to it and returns a React Component.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Alongside these layers, there is a **State Manager** implemented with **Redux**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The decision for this architecture was to separate as much as possible the concerns. In this way, each layer has one function and the data flow can be tracked easely. Also this application was build with the idea of potential scalability.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Advantages:
++ Clean code.
++ Separation of concerns.
++ Scalable and maintainable code.
 
-## Learn More
+Disadvantages:
+- Lots of boilerplate code.
+- Adds complexity for such a small application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Future Work
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project can be further improved by:
+* Writing tests.
+* Use Styled Components over Semantic UI components
+(The above will fix the awkwardness of some current parts of the application that don't scale well when the window is being resized: next image arrows, image info button, meta info)
+* General cosmetic adjusments: nice font for title
 
-### Code Splitting
+# Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+$ git clone https://github.com/Louliett/code-challenge-frontend.git
+$ cd code-challenge-frontend
+$ npm install
+$ npm start
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Deployment
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under MIT. Feel free to use it anyway you see fit.

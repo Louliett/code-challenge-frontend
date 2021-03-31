@@ -28,12 +28,15 @@ export function imageReducer(state = defaultState, action) {
             return {
                 ...state,
                 loading: true,
-                error: false
+                error: false,
+                errorMessage: '' 
             }
         case imageConstant.GET_IMAGES_SUCCESS:
             return {
                 ...state,
                 loading: false,
+                erorr: false,
+                errorMessage: '',
                 images: [...state.images, ...action.payload.images],
                 apiHasMoreImgs: action.payload.hasMore
             }
@@ -41,7 +44,9 @@ export function imageReducer(state = defaultState, action) {
             return {
                 ...state,
                 error: true,
-                errorMessage: action.payload
+                errorMessage: action.payload,
+                loading: false,
+                apiHasMoreImgs: false
             }
         case imageConstant.SET_PAGE_NUMBER:
             return {

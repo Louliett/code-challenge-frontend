@@ -16,10 +16,22 @@ function getImagesPerPage(pageNumber) {
 
         imageAdapter.fetchImagesPerPage(pageNumber)
         .then(images => {
-            const hasMore = (images.length > 0);
-            dispatch(success(images, hasMore));
+            console.log(images.ok, ' OK');
+            if (images.errors) {
+                let errorMessage = images.errors[0];
+                console.log('error', images);
+                dispatch(failure(errorMessage))
+            } else if(!images.ok || images.ok === undefined) {
+                dispatch(failure('Too Many Requests!'));   
+            } else {
+                const hasMore = (images.length > 0);
+                dispatch(success(images, hasMore));
+            }
         })
-        .catch(error => dispatch(failure(error)) );
+        // .catch(error => { 
+        //     console.log('catch trigards', error);
+        //     dispatch(failure(error)) 
+        // });
     }
 
     function request() { return { type: imageConstant.GET_IMAGES_REQUEST } }

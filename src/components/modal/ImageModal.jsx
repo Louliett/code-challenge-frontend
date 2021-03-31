@@ -18,8 +18,8 @@ export function ImageModal(props) {
                     <div className='top_half'>
                         <img src={props.imageInfo.urls.regular} alt={props.imageInfo.alt_description} className='info_image'></img>
                         <div className='description_username'>
-                            <h2> {props.imageInfo.description || 'Splash!'} </h2>
-                            <h3> {props.imageInfo.user.username} </h3>
+                            <h2> Title: {props.imageInfo.description || 'Splash!'} </h2>
+                            <h3> Author: {props.imageInfo.user.username} </h3>
                         </div>                        
                     </div>
                     <hr className='modal_divider'/>

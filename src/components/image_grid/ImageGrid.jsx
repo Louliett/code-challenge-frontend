@@ -1,11 +1,10 @@
-import {Grid, Ref, Loader} from 'semantic-ui-react';
+import {Grid, Ref, Loader, Message, Icon} from 'semantic-ui-react';
 import './image-grid.css';
 
 export function ImageGrid(props) {
     return (
         <div className='image_grid'>
             <Grid centered stackable padded='horizontally'>
-                {/* <Grid.Row> */}
                     {console.log(window.innerWidth, ' WIDTH')}
                     {(props.images).map((image, index) => {
                         if (props.images.length === index + 1) {
@@ -40,8 +39,18 @@ export function ImageGrid(props) {
                     })}
                     <br/>
                     <div>{props.loading && <Loader active inline='centered' />}</div>
-                    <div>{props.error && <p>props.errorMessage</p>}</div>
-                {/* </Grid.Row> */}
+                    <div>
+                        {
+                        props.error && 
+                        <Message negative size='large'>
+                            <Message.Content>
+                                <Icon name='exclamation triangle' size='large'></Icon>
+                                <Message.Header>Error</Message.Header>
+                                <p>{props.errorMessage}</p>
+                            </Message.Content>
+                        </Message>
+                        }
+                    </div>
             </Grid>
         </div>
     );
