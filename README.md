@@ -87,14 +87,15 @@ This project can be further improved by:
 
 # Installation
 
-$ git clone https://github.com/Louliett/code-challenge-frontend.git
-$ cd code-challenge-frontend
-$ npm install
-$ npm start
+* git clone https://github.com/Louliett/code-challenge-frontend.git
+* cd code-challenge-frontend
+* npm install
+* npm start
 
 
 # Deployment
 
+https://louliett.github.io/code-challenge-frontend/
 
 # License
 
