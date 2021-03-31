@@ -15,8 +15,8 @@ async function fetchImagesPerPage(pageNumber) {
       };
     
     let response = await fetch(`${API_URL}?page=${pageNumber}&per_page=30`, requestOptions);
-    console.log(pageNumber, ' page nummer');
-    console.log(response, ' message');
+    //console.log(response, ' respanse');
     let message = await response.json();
+    //console.log(message, ' message');
     return message;
 }

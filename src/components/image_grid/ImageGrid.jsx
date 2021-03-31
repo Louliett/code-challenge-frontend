@@ -5,20 +5,17 @@ export function ImageGrid(props) {
     return (
         <div className='image_grid'>
             <Grid centered stackable padded='horizontally'>
-                    {console.log(window.innerWidth, ' WIDTH')}
                     {(props.images).map((image, index) => {
                         if (props.images.length === index + 1) {
                             return (
                                 <Ref key={image.id} innerRef={props.lastImageRef}>
                                     <Grid.Column key={image.id} computer={5} mobile={16}>
-                                        {/* <div className='image_div'> */}
                                             <img
                                                 className='image'
                                                 src={image.urls.regular} 
                                                 alt={image.alt_description} 
                                                 onClick={ () => {props.onImageClick(image, index)}} 
                                             />
-                                        {/* </div> */}
                                     </Grid.Column>
                                 </Ref>
                             )
