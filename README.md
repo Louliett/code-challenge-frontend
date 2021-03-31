@@ -2,7 +2,7 @@ Frontend challenge
 ====
 # General Info
 
-This project is an oversimplified copy of the famous [Unsplas](https://unsplash.com/). This application actually uses its API to fetch images using **lazy-loading** principle on scroll. The images are loaded on a responsive grid: 
+This project is an oversimplified copy of the famous [Unsplash](https://unsplash.com/). This application actually uses its API to fetch images using **lazy-loading** principle on scroll. The images are loaded on a responsive grid: 
 for mobile devices and computers. On an image click, the image is open in its full resolution in a modal. The user can
 inspect image meta info, download the image and browse next images without closing the modal.
  
@@ -95,7 +95,7 @@ This project can be further improved by:
 
 # Deployment
 
-https://louliett.github.io/code-challenge-frontend/
+[Splash] (https://louliett.github.io/code-challenge-frontend/)
 
 # License
 
